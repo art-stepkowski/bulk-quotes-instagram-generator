@@ -10,7 +10,7 @@ from PIL import ImageFont
 # Parse arguments
 parser = argparse.ArgumentParser(description = "Arguments for generator",
                                  formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument("-csv", help = "CSV files with the list of quotes and authors in format QUOTE,AUTHOR")
+parser.add_argument("-csv", help = "CSV files with the list of quotes and authors in format QUOTE|AUTHOR")
 parser.add_argument("-img", help = "Background image file")
 parser.add_argument("-out", help = "Output dir")
 parser.add_argument("-font", help = "Font used to write quotes")
