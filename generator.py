@@ -13,10 +13,11 @@ parser = argparse.ArgumentParser(description = "Arguments for generator",
 parser.add_argument("-csv", help = "CSV files with the list of quotes and authors in format QUOTE|AUTHOR")
 parser.add_argument("-img", help = "Background image file")
 parser.add_argument("-out", help = "Output dir")
-parser.add_argument("-font", help = "Font used to write quotes")
+parser.add_argument("-font", help = "Font used to write quotes (TTF)")
 parser.add_argument("-bbox", help = "Bounding box coordinates in format top_left_x,top_left_y,bottom_right_x, bottom_right_y")
 parser.add_argument("-col", help = "Text color in RGB format (#RRGGBB)")
 parser.add_argument("-iline", help = "Interline")
+parser.add_argument("-prefix", help = "Prefix for output files", default = "")
 args = parser.parse_args()
 config = vars(args)
 
@@ -61,9 +62,10 @@ with open(config.get("csv")) as csv_file:
     for row in csv_reader:
         img = Image.open(config.get("img"))
         draw = ImageDraw.Draw(img)
-        font_size = 45
+        font_size = 100
         is_ok, quote_font, author_font, text_height, para, pad, author_w, author_h, quote_w = calculate_font_size(row,
-                                                                                                           config.get("font"))
+                                                                                                                  config.get(
+                                                                                                                      "font"))
         if is_ok:
             current_h = bbox[1] + (bbox_height - text_height) / 2
             for line in para:
@@ -77,5 +79,5 @@ with open(config.get("csv")) as csv_file:
                       fill = fill_color)
             x = bbox[0] + (bbox_width - author_w) / 2
             draw.text((x, current_h + author_h), row[1], font = author_font, fill = fill_color)
-            img.save(output_dir + "/" + str(index) + ".png")
+            img.save("{}/{}{}.png".format(output_dir, config.get("prefix"), str(index)))
             index += 1

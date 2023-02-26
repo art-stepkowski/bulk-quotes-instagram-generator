@@ -1,9 +1,10 @@
 # Test files
 background.png
 input.csv
+compare_fonts_input.csv
 
 # directories
 /.idea
 /output
 /fonts
-
+/comparison_output

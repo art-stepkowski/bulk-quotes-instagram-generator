@@ -14,7 +14,7 @@ optional arguments:
                 QUOTE|AUTHOR (default: None)
   -img IMG      Background image file (default: None)
   -out OUT      Output dir (default: None)
-  -font FONT    Font used to write quotes (default: None)
+  -font FONT    Font used to write quotes (TTF) (default: None)
   -bbox BBOX    Bounding box coordinates in format
                 top_left_x,top_left_y,bottom_right_x, bottom_right_y (default:
                 None)
