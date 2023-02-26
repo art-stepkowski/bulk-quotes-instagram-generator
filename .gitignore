@@ -1,9 +1,9 @@
 # Test files
 background.png
 input.csv
-Vertigo.ttf
 
 # directories
 /.idea
 /output
+/fonts
 
