@@ -15,5 +15,5 @@ for file in get_files(r'.\\fonts'):
     myFile.close()
     os.system(
         "generator.py -csv compare_fonts_input.csv -img compare_fonts_background.png -out comparison_output -font "
-        "./fonts/{} -bbox 200,200,880,880 -col #ffffff -iline 1.2 -prefix {}".format(file, index))
+        "\"./fonts/{}\" -bbox 200,200,880,880 -col #ffffff -iline 1.2 -prefix {}".format(file, index))
     index += 1
